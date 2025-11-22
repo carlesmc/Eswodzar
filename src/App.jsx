@@ -8,10 +8,19 @@ import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import GalleryPage from './pages/GalleryPage';
 
+import { supabase } from './lib/supabase';
+
 function App() {
+  const isSupabaseConfigured = !!supabase;
+
   return (
     <AuthProvider>
       <Router>
+        {!isSupabaseConfigured && (
+          <div className="bg-red-600 text-white text-center p-4 font-bold sticky top-0 z-[100]">
+            ERROR CRÍTICO: Supabase no está configurado. Faltan las variables de entorno VITE_SUPABASE_URL y VITE_SUPABASE_ANON_KEY.
+          </div>
+        )}
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/event/:id" element={<EventRegistration />} />

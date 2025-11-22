@@ -11,10 +11,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     if (!supabase) {
-      // Fallback for development without env vars
-      console.warn("Supabase not configured. Using mock session.");
-      const storedUser = localStorage.getItem('eswodzar_user');
-      if (storedUser) setUser(JSON.parse(storedUser));
+      console.error("Supabase not configured.");
       setLoading(false);
       return;
     }
@@ -86,32 +83,12 @@ export const AuthProvider = ({ children }) => {
   };
 
   const login = async (email, password) => {
-    if (!supabase) {
-      // Mock login
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          const mockUser = { id: '1', email, name: 'Usuario Demo', membership: 'active' };
-          setUser(mockUser);
-          localStorage.setItem('eswodzar_user', JSON.stringify(mockUser));
-          resolve({ data: { user: mockUser }, error: null });
-        }, 1000);
-      });
-    }
+    if (!supabase) throw new Error("Supabase no está configurado.");
     return supabase.auth.signInWithPassword({ email, password });
   };
 
   const signup = async (email, password, name) => {
-    if (!supabase) {
-      // Mock signup
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          const mockUser = { id: '2', email, name, membership: 'none' };
-          setUser(mockUser);
-          localStorage.setItem('eswodzar_user', JSON.stringify(mockUser));
-          resolve({ data: { user: mockUser }, error: null });
-        }, 1000);
-      });
-    }
+    if (!supabase) throw new Error("Supabase no está configurado.");
     return supabase.auth.signUp({
       email,
       password,
@@ -126,7 +103,6 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     if (!supabase) {
       setUser(null);
-      localStorage.removeItem('eswodzar_user');
       return;
     }
     return supabase.auth.signOut();
