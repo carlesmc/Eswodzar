@@ -1,0 +1,11 @@
+INSERT INTO public.events (title, description, date, time, location, price, max_spots, images)
+VALUES (
+  'WOD Río Turia',
+  'Entrenamiento funcional al aire libre. Almuerzo post-entreno en Bar Cremaet.',
+  '2025-01-18',
+  '10:00:00',
+  'Río Turia (Puente de las Flores)',
+  0.00,
+  20,
+  ARRAY['https://umpicvnzzaenoxixoaer.supabase.co/storage/v1/object/sign/imagenes/2.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8xYjg5ZTdhYS1mNjBiLTQwNWYtOTllZS1hODJlZTEyMmZhMTUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZW5lcy8yLmpwZyIsImlhdCI6MTc2Mzc1NDY1OSwiZXhwIjoxNzk1MjkwNjU5fQ.mH-XcRy_V-qDU2ZcOoQiBAM2ZnfGBbBaSywPtKfc5Ws']
+);
