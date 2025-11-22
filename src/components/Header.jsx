@@ -34,7 +34,7 @@ const Header = () => {
                 <div className="flex justify-between items-center">
                     {/* Logo */}
                     <div className="flex-shrink-0 flex items-center">
-                        <Link to="/">
+                        <Link to="/" onClick={() => window.scrollTo(0, 0)}>
                             <img
                                 src={logo}
                                 alt="ESWODZAR"

@@ -2,28 +2,38 @@ import React from 'react';
 import { Calendar, MapPin, Clock, Beer } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const EventCard = ({ id, date, time, location, wod, bar, coverImage }) => {
+const EventCard = ({ id, date, time, location, wod, bar, coverImage, price }) => {
     return (
         <div className="bg-white border border-gray-100 hover:shadow-xl transition-all duration-300 group flex flex-col h-full">
             {/* Image Section */}
-            <div className="h-48 bg-gray-200 relative overflow-hidden">
-                {coverImage && (
+            {coverImage && (
+                <div className="h-48 bg-gray-200 relative overflow-hidden">
                     <img
                         src={coverImage}
                         alt={wod}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                )}
-                <div className="absolute top-4 left-4 bg-brand-black text-white px-3 py-1 text-xs font-bold uppercase tracking-wider">
-                    {date}
+                    <div className="absolute top-4 left-4 bg-brand-black text-white px-3 py-1 text-xs font-bold uppercase tracking-wider">
+                        {date}
+                    </div>
                 </div>
-            </div>
+            )}
 
             <div className="p-6 flex-grow flex flex-col">
                 <div className="flex justify-between items-start mb-4">
                     <div className="flex items-center text-gray-500 text-sm">
                         <Clock size={14} className="mr-1" />
                         {time}
+                    </div>
+                    <div className="flex gap-2">
+                        {!coverImage && (
+                            <div className="bg-brand-black text-white px-2 py-1 text-xs font-bold uppercase tracking-wider">
+                                {date}
+                            </div>
+                        )}
+                        <div className="bg-brand-orange text-white px-2 py-1 text-xs font-bold uppercase tracking-wider">
+                            {price === 0 || price === '0.00' ? 'FREE' : `${price}€`}
+                        </div>
                     </div>
                 </div>
 

@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { ArrowLeft, Lock, Mail } from 'lucide-react';
 import logo from '../assets/logo.png';
+import authBg from '../assets/auth_bg_new.jpg';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -58,8 +59,18 @@ const Login = () => {
     };
 
     return (
-        <div className="min-h-screen bg-brand-black flex flex-col justify-center items-center p-4">
-            <div className="w-full max-w-md bg-white p-8 rounded-none shadow-2xl relative">
+        <div className="min-h-screen bg-brand-black flex flex-col justify-center items-center p-4 relative overflow-hidden">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+                <img
+                    src={authBg}
+                    alt="Background"
+                    className="w-full h-full object-cover opacity-40"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/80 to-brand-black/40" />
+            </div>
+
+            <div className="w-full max-w-md bg-white p-8 rounded-none shadow-2xl relative z-10">
                 <Link to="/" className="absolute top-4 left-4 text-gray-400 hover:text-brand-black transition-colors">
                     <ArrowLeft size={24} />
                 </Link>

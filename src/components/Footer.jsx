@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Instagram, MessageCircle } from 'lucide-react';
 import logo from '../assets/logo.png';
 
 const Footer = () => {
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
     return (
         <footer className="bg-brand-black text-white pt-20 pb-10 border-t border-gray-800">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,15 +54,46 @@ const Footer = () => {
             </div>
 
             {/* Sticky WhatsApp CTA */}
-            <a
-                href="https://chat.whatsapp.com/HqgqcuifspqBtuMxGG527O"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform z-50 flex items-center justify-center"
-                title="Únete al grupo de WhatsApp"
+            {/* Sticky Email CTA */}
+            <button
+                onClick={() => setIsPopupOpen(true)}
+                className="fixed bottom-6 right-6 bg-brand-orange text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform z-50 flex items-center justify-center"
+                title="Contáctanos"
             >
                 <MessageCircle size={32} />
-            </a>
+            </button>
+
+            {/* Email Popup */}
+            {isPopupOpen && (
+                <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
+                    <div className="bg-white text-brand-black p-8 max-w-md w-full relative shadow-2xl border-t-4 border-brand-orange">
+                        <button
+                            onClick={() => setIsPopupOpen(false)}
+                            className="absolute top-4 right-4 text-gray-400 hover:text-brand-black"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+
+                        <div className="text-center">
+                            <div className="w-16 h-16 bg-brand-orange/10 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-orange">
+                                <MessageCircle size={32} />
+                            </div>
+                            <h3 className="text-2xl font-black uppercase mb-2">¿Tienes dudas?</h3>
+                            <p className="text-gray-600 mb-6">
+                                Envía un email a <a href="mailto:info@eswodzar.es" className="font-bold text-brand-orange hover:underline">info@eswodzar.es</a> y te responderemos en menos de 12h.
+                            </p>
+                            <button
+                                onClick={() => setIsPopupOpen(false)}
+                                className="w-full bg-brand-black text-white py-3 font-bold uppercase hover:bg-brand-orange transition-colors"
+                            >
+                                Entendido
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </footer>
     );
 };

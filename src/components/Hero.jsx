@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import heroBg from '../assets/hero_rotated.png';
 
 const Hero = () => {
     return (
-        <div className="relative h-screen w-full overflow-hidden bg-brand-black">
+        <div id="hero" className="relative h-screen w-full overflow-hidden bg-brand-black">
             {/* Background Image */}
             <div className="absolute inset-0">
                 <img
@@ -23,16 +24,16 @@ const Hero = () => {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="max-w-4xl"
                 >
-                    <div className="inline-block border border-white/30 px-4 py-1 mb-8 backdrop-blur-sm">
-                        <span className="text-white font-bold tracking-[0.3em] uppercase text-xs md:text-sm">
-                            Est. 2025 • Valencia
-                        </span>
-                    </div>
-
                     <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-white leading-none mb-8 uppercase tracking-tighter">
                         Sudor <span className="text-brand-orange">y</span><br />
                         <span className="text-white">Almuerzo</span>
                     </h1>
+
+                    <div className="inline-block bg-brand-orange/80 px-4 py-1 mb-8 backdrop-blur-sm">
+                        <span className="text-white font-bold tracking-[0.3em] uppercase text-xs md:text-sm">
+                            Est. 2025 • Valencia
+                        </span>
+                    </div>
 
                     <p className="text-gray-200 text-lg md:text-2xl max-w-2xl mx-auto mb-12 font-light leading-relaxed">
                         La comunidad donde el entrenamiento funcional termina con la sagrada tradición valenciana.
@@ -45,14 +46,12 @@ const Hero = () => {
                         >
                             Ver Eventos
                         </a>
-                        <a
-                            href="https://chat.whatsapp.com/HqgqcuifspqBtuMxGG527O"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <Link
+                            to="/signup"
                             className="px-10 py-4 border-2 border-white text-white font-black uppercase tracking-wider hover:bg-white hover:text-brand-black transition-all duration-300 min-w-[200px]"
                         >
                             Unirse Ahora
-                        </a>
+                        </Link>
                     </div>
                 </motion.div>
             </div>

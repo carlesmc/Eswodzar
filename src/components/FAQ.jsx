@@ -38,16 +38,20 @@ const FAQItem = ({ question, answer }) => {
 const FAQ = () => {
     const faqs = [
         {
+            question: "¿Qué incluyen los planes de suscripción?",
+            answer: "Tenemos dos opciones: FREE (acceso limitado a algunos eventos, pago por evento) y PREMIUM (10€/mes). El plan Premium incluye camiseta oficial, prioridad en reservas, acceso a todos los eventos y grupos exclusivos, descuentos en marcas y contenido técnico semanal."
+        },
+        {
+            question: "¿Cómo funciona el pago?",
+            answer: "El plan Premium es una suscripción mensual de 10€ sin permanencia. Puedes cancelar cuando quieras. Los eventos sueltos del plan Free se pagan in situ (5€)."
+        },
+        {
+            question: "¿Qué es eso de la camiseta oficial?",
+            answer: "Es nuestra piel de guerra. Solo los miembros Premium reciben la camiseta oficial de ESWODZAR al suscribirse. Diseño exclusivo y tejido técnico de calidad."
+        },
+        {
             question: "¿Necesito estar en forma para unirme?",
             answer: "Para nada. Nuestros entrenamientos son escalables. Si no puedes hacer algo, lo adaptamos. Lo importante es moverse y pasarlo bien."
-        },
-        {
-            question: "¿Cuánto cuesta?",
-            answer: "La primera sesión es gratis. Después funcionamos con bonos o pago por sesión (5€). El almuerzo se paga aparte en el bar."
-        },
-        {
-            question: "¿Qué material necesito llevar?",
-            answer: "Ropa deportiva cómoda, zapatillas y agua. Nosotros ponemos el material (kettlebells, cuerdas, etc.)."
         },
         {
             question: "¿Dónde quedamos exactamente?",

@@ -53,6 +53,7 @@ const Events = () => {
                                 wod={event.title}
                                 bar={event.description || 'Post-WOD sorpresa'}
                                 coverImage={event.cover_image}
+                                price={event.price}
                             />
                         </div>
                     ))}

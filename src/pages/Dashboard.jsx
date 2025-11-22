@@ -250,12 +250,12 @@ const Dashboard = () => {
                                             <h3 className="text-xl font-black uppercase mb-2">Gratuito</h3>
                                             <p className="text-3xl font-bold mb-4">0€<span className="text-sm text-gray-400 font-normal">/mes</span></p>
                                             <ul className="space-y-2 mb-6 text-sm text-gray-600">
-                                                <li className="flex items-center"><Check size={16} className="mr-2 text-green-500" /> Acceso a eventos sueltos</li>
-                                                <li className="flex items-center"><Check size={16} className="mr-2 text-green-500" /> Comunidad de WhatsApp</li>
-                                                <li className="flex items-center"><Check size={16} className="mr-2 text-green-500" /> Newsletter mensual</li>
+                                                <li className="flex items-center"><Check size={16} className="mr-2 text-green-500" /> Acceso limitado a eventos</li>
+                                                <li className="flex items-center"><Check size={16} className="mr-2 text-green-500" /> Pago por evento (5€)</li>
+                                                <li className="flex items-center"><Check size={16} className="mr-2 text-green-500" /> Comunidad básica</li>
                                             </ul>
                                             <button className="w-full py-3 border-2 border-gray-200 font-bold uppercase text-sm text-gray-400 cursor-not-allowed">
-                                                Seleccionado
+                                                {user.membership !== 'active' ? 'Seleccionado' : 'Cambiar a Free'}
                                             </button>
                                         </div>
 
@@ -265,15 +265,16 @@ const Dashboard = () => {
                                                 <div className="absolute top-0 right-0 bg-brand-orange text-white text-xs font-bold px-2 py-1 uppercase">Plan Actual</div>
                                             )}
                                             <h3 className="text-xl font-black uppercase mb-2 text-brand-orange">Premium</h3>
-                                            <p className="text-3xl font-bold mb-4">19.90€<span className="text-sm text-gray-400 font-normal">/mes</span></p>
+                                            <p className="text-3xl font-bold mb-4">10€<span className="text-sm text-gray-400 font-normal">/mes</span></p>
                                             <ul className="space-y-2 mb-6 text-sm text-gray-600">
                                                 <li className="flex items-center"><Check size={16} className="mr-2 text-brand-orange" /> Todo lo del plan gratuito</li>
+                                                <li className="flex items-center"><Check size={16} className="mr-2 text-brand-orange" /> Camiseta Oficial ESWODZAR</li>
                                                 <li className="flex items-center"><Check size={16} className="mr-2 text-brand-orange" /> Prioridad en reservas</li>
-                                                <li className="flex items-center"><Check size={16} className="mr-2 text-brand-orange" /> Camiseta oficial anual</li>
+                                                <li className="flex items-center"><Check size={16} className="mr-2 text-brand-orange" /> Acceso a grupos exclusivos</li>
                                                 <li className="flex items-center"><Check size={16} className="mr-2 text-brand-orange" /> Descuentos en partners</li>
                                             </ul>
                                             <button className="w-full py-3 bg-brand-black text-white font-bold uppercase text-sm hover:bg-brand-orange transition-colors">
-                                                Mejorar Plan
+                                                {user.membership === 'active' ? 'Gestionar Suscripción' : 'Mejorar Plan'}
                                             </button>
                                         </div>
                                     </div>
