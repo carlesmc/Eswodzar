@@ -61,7 +61,7 @@ const Signup = () => {
                                 className={`border-2 p-6 relative cursor-pointer transition-all ${selectedPlan === 'premium' ? 'border-brand-orange bg-brand-orange/10' : 'border-gray-700 bg-gray-800/50 hover:bg-gray-800'}`}
                             >
                                 <div className="absolute -top-3 right-4 bg-brand-orange text-brand-black text-xs font-bold uppercase px-2 py-1">
-                                    Recomendado
+                                    Promoción Lanzamiento
                                 </div>
                                 <div className="flex justify-between items-end mb-4">
                                     <div>
@@ -69,8 +69,9 @@ const Signup = () => {
                                         <p className="text-sm text-gray-400">Para los que van en serio</p>
                                     </div>
                                     <div className="text-right">
-                                        <span className="text-3xl font-black text-white">10€</span>
-                                        <span className="text-sm text-gray-400">/mes</span>
+                                        <span className="text-3xl font-black text-white">0€</span>
+                                        <span className="text-sm text-gray-400 line-through ml-2">10€</span>
+                                        <span className="block text-xs text-brand-orange font-bold uppercase">Gratis en Beta</span>
                                     </div>
                                 </div>
                                 <ul className="space-y-3 text-sm">
@@ -123,7 +124,7 @@ const Signup = () => {
                                     </li>
                                     <li className="flex items-start">
                                         <span className="text-gray-500 mr-2">•</span>
-                                        Comunidad básica
+                                        Gánate el bocadillo. Suda la culpa.
                                     </li>
                                 </ul>
                                 {selectedPlan === 'free' && (

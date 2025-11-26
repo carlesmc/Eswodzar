@@ -7,7 +7,8 @@ import logo from '../assets/logo.png';
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const { user } = useAuth();
+    const { user, logout } = useAuth();
+    const [userMenuOpen, setUserMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -16,6 +17,11 @@ const Header = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    const handleLogout = async () => {
+        await logout();
+        setUserMenuOpen(false);
+    };
 
     const navLinks = [
         { name: 'Concepto', href: '/#mission' },
@@ -56,15 +62,42 @@ const Header = () => {
                         ))}
 
                         {user ? (
-                            <Link
-                                to="/dashboard"
-                                className="flex items-center text-white hover:text-brand-orange transition-colors"
-                            >
-                                <div className="w-8 h-8 bg-brand-orange rounded-full flex items-center justify-center text-white font-bold mr-2">
-                                    {user.name.charAt(0)}
-                                </div>
-                                <span className="text-sm font-bold uppercase hidden lg:inline">{user.name.split(' ')[0]}</span>
-                            </Link>
+                            <div className="relative">
+                                <button
+                                    onClick={() => setUserMenuOpen(!userMenuOpen)}
+                                    className="flex items-center text-white hover:text-brand-orange transition-colors focus:outline-none"
+                                >
+                                    <div className="w-8 h-8 bg-brand-orange rounded-full flex items-center justify-center text-white font-bold mr-2">
+                                        {user.name.charAt(0)}
+                                    </div>
+                                    <span className="text-sm font-bold uppercase hidden lg:inline">{user.name.split(' ')[0]}</span>
+                                </button>
+
+                                {userMenuOpen && (
+                                    <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                                        <Link
+                                            to="/dashboard"
+                                            onClick={() => setUserMenuOpen(false)}
+                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                        >
+                                            Dashboard
+                                        </Link>
+                                        <Link
+                                            to={`/profile/${user.id}`}
+                                            onClick={() => setUserMenuOpen(false)}
+                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                        >
+                                            Mi Perfil
+                                        </Link>
+                                        <button
+                                            onClick={handleLogout}
+                                            className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                        >
+                                            Cerrar Sesión
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
                         ) : (
                             <Link
                                 to="/login"
@@ -101,15 +134,33 @@ const Header = () => {
                                 {link.name}
                             </a>
                         ))}
-                        <div className="pt-4">
+                        <div className="pt-4 space-y-2">
                             {user ? (
-                                <Link
-                                    to="/dashboard"
-                                    onClick={() => setIsOpen(false)}
-                                    className="block w-full text-center px-6 py-3 bg-brand-orange text-white font-bold uppercase tracking-wider"
-                                >
-                                    Mi Cuenta
-                                </Link>
+                                <>
+                                    <Link
+                                        to="/dashboard"
+                                        onClick={() => setIsOpen(false)}
+                                        className="block w-full text-center px-6 py-3 bg-brand-orange text-white font-bold uppercase tracking-wider"
+                                    >
+                                        Dashboard
+                                    </Link>
+                                    <Link
+                                        to={`/profile/${user.id}`}
+                                        onClick={() => setIsOpen(false)}
+                                        className="block w-full text-center px-6 py-3 border-2 border-white text-white font-bold uppercase tracking-wider"
+                                    >
+                                        Mi Perfil
+                                    </Link>
+                                    <button
+                                        onClick={() => {
+                                            handleLogout();
+                                            setIsOpen(false);
+                                        }}
+                                        className="block w-full text-center px-6 py-3 text-gray-400 font-bold uppercase tracking-wider hover:text-white"
+                                    >
+                                        Cerrar Sesión
+                                    </button>
+                                </>
                             ) : (
                                 <Link
                                     to="/login"

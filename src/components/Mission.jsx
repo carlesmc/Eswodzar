@@ -6,13 +6,13 @@ const Mission = () => {
     const features = [
         {
             icon: <Dumbbell className="w-8 h-8 text-brand-orange" />,
-            title: "Entreno Funcional",
+            title: "Entrenamiento Funcional",
             description: "WODs adaptables a todos los niveles. Sin espejos, sin egos, solo sudor y aire libre."
         },
         {
             icon: <Beer className="w-8 h-8 text-brand-orange" />,
-            title: "Almuerzo Sagrado",
-            description: "Porque el deporte es la excusa. Bocadillo, cacaos y cerveza Turia son la recompensa."
+            title: "Esmorzar",
+            description: "Porque el deporte es la excusa. Bocadillo, cacaos y cerveza son la recompensa."
         },
         {
             icon: <Users className="w-8 h-8 text-brand-orange" />,

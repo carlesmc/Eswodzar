@@ -1,8 +1,11 @@
 import React from 'react';
 import { Calendar, MapPin, Clock, Beer } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const EventCard = ({ id, date, time, location, wod, bar, coverImage, price }) => {
+    const { user } = useAuth();
+    const navigate = useNavigate();
     return (
         <div className="bg-white border border-gray-100 hover:shadow-xl transition-all duration-300 group flex flex-col h-full">
             {/* Image Section */}
@@ -51,12 +54,19 @@ const EventCard = ({ id, date, time, location, wod, bar, coverImage, price }) =>
                     </div>
                 </div>
 
-                <Link
-                    to={`/event/${id}`}
+                <button
+                    onClick={(e) => {
+                        e.preventDefault();
+                        if (!user) {
+                            navigate('/login');
+                        } else {
+                            navigate(`/event/${id}`);
+                        }
+                    }}
                     className="block w-full bg-gray-100 text-brand-black text-center py-3 font-bold uppercase text-sm hover:bg-brand-black hover:text-white transition-colors"
                 >
                     Apuntarse
-                </Link>
+                </button>
             </div>
         </div>
     );

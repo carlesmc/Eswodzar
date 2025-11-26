@@ -4,6 +4,7 @@ import { ArrowLeft, Calendar, MapPin, Clock, CheckCircle } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import logo from '../assets/logo.png';
 import { supabase } from '../lib/supabase';
+import EventAttendeesList from '../components/EventAttendeesList';
 
 const EventRegistration = () => {
     const { id } = useParams();
@@ -166,6 +167,10 @@ const EventRegistration = () => {
                         <div className="mt-8 pt-8 border-t border-gray-100">
                             <p className="text-xs text-gray-400 uppercase tracking-wider mb-2">Precio</p>
                             <p className="text-2xl font-bold">{eventDetails.price}</p>
+                        </div>
+
+                        <div className="mt-8 pt-8 border-t border-gray-100">
+                            <EventAttendeesList eventId={eventDetails.id} currentUserId={user?.id} />
                         </div>
                     </div>
 

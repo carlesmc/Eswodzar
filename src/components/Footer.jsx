@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Instagram, MessageCircle } from 'lucide-react';
 import logo from '../assets/logo.png';
+import peanutIcon from '../assets/peanut_icon.png';
 
 const Footer = () => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -57,10 +58,12 @@ const Footer = () => {
             {/* Sticky Email CTA */}
             <button
                 onClick={() => setIsPopupOpen(true)}
-                className="fixed bottom-6 right-6 bg-brand-orange text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform z-50 flex items-center justify-center"
+                className="fixed bottom-6 right-6 bg-white text-brand-orange p-3 rounded-full shadow-lg hover:scale-110 transition-transform z-50 flex items-center justify-center border-2 border-brand-orange"
                 title="Contáctanos"
             >
-                <MessageCircle size={32} />
+                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <img src={peanutIcon} alt="Contacto" className="w-8 h-8" />
+                </div>
             </button>
 
             {/* Email Popup */}

@@ -38,16 +38,16 @@ const FAQItem = ({ question, answer }) => {
 const FAQ = () => {
     const faqs = [
         {
-            question: "¿Qué incluyen los planes de suscripción?",
-            answer: "Tenemos dos opciones: FREE (acceso limitado a algunos eventos, pago por evento) y PREMIUM (10€/mes). El plan Premium incluye camiseta oficial, prioridad en reservas, acceso a todos los eventos y grupos exclusivos, descuentos en marcas y contenido técnico semanal."
+            question: "¿Cuánto cuesta unirse?",
+            answer: "¡Ahora mismo NADA! Estamos en fase Beta de lanzamiento, así que el Plan Premium es totalmente GRATIS para todos los primeros usuarios. Aprovecha para probar todas las funcionalidades sin coste."
         },
         {
-            question: "¿Cómo funciona el pago?",
-            answer: "El plan Premium es una suscripción mensual de 10€ sin permanencia. Puedes cancelar cuando quieras. Los eventos sueltos del plan Free se pagan in situ (5€)."
+            question: "¿Qué es el sistema de niveles y medallas?",
+            answer: "Gamificamos tu esfuerzo. Asistir a eventos, mantener rachas y participar en la comunidad desbloquea medallas (Badges) en tu perfil. ¡Compite en el ranking mensual para ver quién es el más constante!"
         },
         {
-            question: "¿Qué es eso de la camiseta oficial?",
-            answer: "Es nuestra piel de guerra. Solo los miembros Premium reciben la camiseta oficial de ESWODZAR al suscribirse. Diseño exclusivo y tejido técnico de calidad."
+            question: "¿Puedo ver quién va a los eventos?",
+            answer: "Sí. Desde la plataforma podrás ver la lista de asistentes a cada evento. Si agregas amigos, podrás ver fácilmente cuándo se apuntan ellos para no entrenar solo."
         },
         {
             question: "¿Necesito estar en forma para unirme?",
@@ -55,7 +55,7 @@ const FAQ = () => {
         },
         {
             question: "¿Dónde quedamos exactamente?",
-            answer: "La ubicación varía cada semana a lo largo del cauce del Río Turia. Avisamos por el grupo de WhatsApp 2 días antes."
+            answer: "La ubicación varía cada semana a lo largo del cauce del Río Turia. Al registrarte en el evento verás la ubicación exacta y te avisamos por el grupo de WhatsApp."
         }
     ];
 
